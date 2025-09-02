@@ -1,0 +1,166 @@
+{
+  "info": {
+    "name": "Multi-Branch API",
+    "_postman_id": "e2b0b5fa-0a00-4e67-9b5d-123456789abc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "${import.meta.env.VITE_API_BASE_URL}/api/auth/admin/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "admin",
+            "login"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"superadmin\", \"password\": \"123456\"}"
+        }
+      }
+    },
+    {
+      "name": "Create Branch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "${import.meta.env.VITE_API_BASE_URL}/api/branches/create",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "branches",
+            "create"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"branch_name\": \"Branch 1\", \"address\": \"Main Road\", \"gst_number\": \"GST123\", \"mobile_number\": \"9876543210\", \"alternate_number\": \"9123456780\", \"admin_username\": \"branch1admin\", \"admin_password\": \"123456\"}"
+        }
+      }
+    },
+    {
+      "name": "Branch Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "${import.meta.env.VITE_API_BASE_URL}/api/auth/branch/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "branch",
+            "login"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"branch1admin\", \"password\": \"123456\"}"
+        }
+      }
+    },
+    {
+      "name": "Add Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "${import.meta.env.VITE_API_BASE_URL}/api/products/add",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products",
+            "add"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"product_name\": \"Rice Bag\", \"price\": 1500, \"stock\": 20}"
+        }
+      }
+    },
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "${import.meta.env.VITE_API_BASE_URL}/api/products/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products",
+            ""
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
